@@ -283,6 +283,60 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "06- Diff APPID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test[\"Status Code is 400\"], function(){\r",
+							"\tpm.response.to.have.status(400)\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "ea8edd47-8b50-4202-98a6-e82e5b7992df",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://samples.openweathermap.org/data/2.5/weather?q=London&appid=abcd",
+					"protocol": "https",
+					"host": [
+						"samples",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London"
+						},
+						{
+							"key": "appid",
+							"value": "abcd"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
-}
